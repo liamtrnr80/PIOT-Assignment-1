@@ -42,8 +42,6 @@ emoji = [
 ]
 
 class Emoji():
-    def __init__(self):
-        super().__init__()
 
     def printEmoji(self, n, sense):
         sense.set_pixels(emoji[n])
