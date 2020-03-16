@@ -45,7 +45,7 @@ class Emoji():
 
     def printEmoji(self, n, sense):
         sense.set_pixels(emoji[n])
-        sleep(1)
+        sleep(3)
 
 def main():
     sense = SenseHat()
