@@ -9,41 +9,43 @@ e = (0, 0, 0)
 p = (150,0,150)
 
 class Emoji():
-    emoji = [
-        [
-            w,w,w,w,b,w,w,w,
-            w,w,w,b,b,w,w,w,
-            w,w,b,b,b,b,w,w,
-            w,b,e,b,e,b,w,w,
-            w,b,b,b,b,b,b,w,
-            b,b,e,e,e,e,b,b,
-            b,b,b,b,b,b,b,b,
-            w,w,w,w,w,w,w,w
-        ],
-        [
-            w,y,y,y,y,y,y,w,
-            y,y,y,y,y,y,y,y,
-            y,e,e,y,y,e,e,y,
-            y,e,e,y,y,e,e,y,
-            y,y,y,y,y,y,y,y,
-            y,e,y,y,y,y,e,y,
-            y,y,e,e,e,e,y,y,
-            w,y,y,y,y,y,y,w
-        ],
-        [
-            w,p,p,p,p,p,p,w,
-            p,p,p,p,p,p,p,p,
-            p,e,p,p,p,p,e,p,
-            p,e,e,p,p,e,e,p,
-            p,p,p,p,p,p,p,p,
-            p,p,p,p,p,p,e,p,
-            p,p,e,e,e,e,p,p,
-            w,p,p,p,p,p,p,w
-        ]
-    ]
 
+    def __init__(self):
+        self.emoji = [
+            [
+                w,w,w,w,b,w,w,w,
+                w,w,w,b,b,w,w,w,
+                w,w,b,b,b,b,w,w,
+                w,b,e,b,e,b,w,w,
+                w,b,b,b,b,b,b,w,
+                b,b,e,e,e,e,b,b,
+                b,b,b,b,b,b,b,b,
+                w,w,w,w,w,w,w,w
+            ],
+            [
+                w,y,y,y,y,y,y,w,
+                y,y,y,y,y,y,y,y,
+                y,e,e,y,y,e,e,y,
+                y,e,e,y,y,e,e,y,
+                y,y,y,y,y,y,y,y,
+                y,e,y,y,y,y,e,y,
+                y,y,e,e,e,e,y,y,
+                w,y,y,y,y,y,y,w
+            ],
+            [
+                w,p,p,p,p,p,p,w,
+                p,p,p,p,p,p,p,p,
+                p,e,p,p,p,p,e,p,
+                p,e,e,p,p,e,e,p,
+                p,p,p,p,p,p,p,p,
+                p,p,p,p,p,p,e,p,
+                p,p,e,e,e,e,p,p,
+                w,p,p,p,p,p,p,w
+            ]
+        ]
+    
     def printEmoji(self, n, sense):
-        sense.set_pixels(emoji[n])
+        sense.set_pixels(self.emoji[n])
         sleep(3)
 
 def main():
