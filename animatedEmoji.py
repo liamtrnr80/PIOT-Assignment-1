@@ -62,6 +62,5 @@ def main():
             Emoji.printEmoji(n, sense)
             n = 0
 
-
 if __name__ == '__main__':
     main()
