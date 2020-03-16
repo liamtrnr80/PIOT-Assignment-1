@@ -42,24 +42,28 @@ emoji = [
 ]
 
 class Emoji():
-    def printEmoji(self, num, sense):
-        sense.set_pixels(emoji[num])
+    def __init__(self):
+        super().__init__()
+
+    def printEmoji(self, n, sense):
+        sense.set_pixels(emoji[n])
         sleep(1)
 
 def main():
     sense = SenseHat()
-    
+    emoji = Emoji()
+
     n = 0
 
     while True:
         if n == 0:
-            Emoji.printEmoji(n, sense)
+            emoji.printEmoji(n, sense)
             n = 1
         elif n == 1:
-            Emoji.printEmoji(n, sense)
+            emoji.printEmoji(n, sense)
             n = 2
         else:
-            Emoji.printEmoji(n, sense)
+            emoji.printEmoji(n, sense)
             n = 0
 
 if __name__ == '__main__':
