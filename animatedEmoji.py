@@ -9,7 +9,6 @@ e = (0, 0, 0)
 p = (150,0,150)
 
 class Emoji():
-
     def __init__(self):
         self.emoji = [
             [
