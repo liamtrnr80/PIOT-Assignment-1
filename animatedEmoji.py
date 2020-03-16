@@ -1,8 +1,6 @@
 from sense_hat import SenseHat
 from time import sleep
 
-sense = SenseHat()
-
 w = (150, 150, 150)
 b = (142, 71, 0)
 bro = (204, 102, 0)
@@ -43,18 +41,27 @@ emoji = [
     ]
 ]
 
-n = 0
+class Emoji():
+    def printEmoji(self, num, sense):
+        sense.set_pixels(emoji[num])
+        sleep(1)
 
-while True:
-    if n == 0:
-        sense.set_pixels(emoji[n])
-        n = 1
-        sleep(1)
-    elif n == 1:
-        sense.set_pixels(emoji[n])
-        n = 2
-        sleep(1)
-    elif n == 2:
-        sense.set_pixels(emoji[n])
-        n = 0
-        sleep(1)
+def main():
+    sense = SenseHat()
+    
+    n = 0
+
+    while True:
+        if n == 0:
+            Emoji.printEmoji(n, sense)
+            n = 1
+        elif n == 1:
+            Emoji.printEmoji(n, sense)
+            n = 2
+        else:
+            Emoji.printEmoji(n, sense)
+            n = 0
+
+
+if __name__ == '__main__':
+    main()
