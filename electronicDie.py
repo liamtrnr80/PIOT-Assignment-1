@@ -69,7 +69,7 @@ class RollDice:
             ]
         ]
     def __init__(self):
-        self.dice_roll = 0
+        self.dice_roll=0
         
     def dice_roll(self):
         rolling_counter=0
