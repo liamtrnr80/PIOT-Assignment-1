@@ -70,13 +70,8 @@ class RollDice:
         ]
         
     def dice_roll(self):
-        # n = random.randint(3, 9)
-        n = random.randrange(0,5)
+        n = random.randrange(0,6)
         self.sense.set_pixels(self.dice[n])
-        # while n != 0:
-        #     self.sense.set_pixels(self.dice[n])
-        #     n -= 1
-        #     sleep(.2)
 
 def main():
     print("Sense hat main")
@@ -91,10 +86,9 @@ def main():
         z = abs(z)
 
         if x > 2 or y > 2 or z > 2:
-            # rollDice.sense.set_pixels(random.choice(rollDice.dice))
             rollDice.dice_roll()
             sleep(2)
-            rollDice.sense.clear()
+            # rollDice.sense.clear()
 
 
 if __name__ == '__main__':
