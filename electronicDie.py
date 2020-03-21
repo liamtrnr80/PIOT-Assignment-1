@@ -2,82 +2,82 @@ from sense_hat import SenseHat
 from time import sleep
 import random
 
-class RollDice:
+# class RollDice:
     
-    b = [0, 0, 0]
-    w = [150, 150, 150]
-    n = random.randrange(0,5)
+#     b = [0, 0, 0]
+#     w = [150, 150, 150]
+#     n = random.randrange(0,5)
 
-    def __init__(self):
-        self.dice = [
-            [
-                w,w,w,w,w,w,w,w,
-                w,w,w,w,w,w,w,w,
-                w,w,w,w,w,w,w,w,
-                w,w,w,b,b,w,w,w,
-                w,w,w,b,b,w,w,w,
-                w,w,w,w,w,w,w,w,
-                w,w,w,w,w,w,w,w,
-                w,w,w,w,w,w,w,w
-            ],
-            [
-                w,w,w,w,w,w,w,w,
-                w,b,b,w,w,w,w,w,
-                w,b,b,w,w,w,w,w,
-                w,w,w,w,w,w,w,w,
-                w,w,w,w,w,w,w,w,
-                w,w,w,w,w,b,b,w,
-                w,w,w,w,w,b,b,w,
-                w,w,w,w,w,w,w,w
-            ],
-            [
-                w,w,w,w,w,w,w,w,
-                w,b,b,w,w,w,w,w,
-                w,b,b,w,w,w,w,w,
-                w,w,w,b,b,w,w,w,
-                w,w,w,b,b,w,w,w,
-                w,w,w,w,w,b,b,w,
-                w,w,w,w,w,b,b,w,
-                w,w,w,w,w,w,w,w
-            ],
-            [
-                w,w,w,w,w,w,w,w,
-                w,b,b,w,w,b,b,w,
-                w,b,b,w,w,b,b,w,
-                w,w,w,w,w,w,w,w,
-                w,w,w,w,w,w,w,w,
-                w,b,b,w,w,b,b,w,
-                w,b,b,w,w,b,b,w,
-                w,w,w,w,w,w,w,w
-            ],
-            [
-                w,w,w,w,w,w,w,w,
-                w,b,b,w,w,b,b,w,
-                w,b,b,w,w,b,b,w,
-                w,w,w,b,b,w,w,w,
-                w,w,w,b,b,w,w,w,
-                w,b,b,w,w,b,b,w,
-                w,b,b,w,w,b,b,w,
-                w,w,w,w,w,w,w,w
-            ],
-            [
-                w,b,b,w,w,b,b,w,
-                w,b,b,w,w,b,b,w,
-                w,w,w,w,w,w,w,w,
-                w,b,b,w,w,b,b,w,
-                w,b,b,w,w,b,b,w,
-                w,w,w,w,w,w,w,w,
-                w,b,b,w,w,b,b,w,
-                w,b,b,w,w,b,b,w
-            ]
-        ]
+#     def __init__(self):
+#         self.dice = [
+#             [
+#                 w,w,w,w,w,w,w,w,
+#                 w,w,w,w,w,w,w,w,
+#                 w,w,w,w,w,w,w,w,
+#                 w,w,w,b,b,w,w,w,
+#                 w,w,w,b,b,w,w,w,
+#                 w,w,w,w,w,w,w,w,
+#                 w,w,w,w,w,w,w,w,
+#                 w,w,w,w,w,w,w,w
+#             ],
+#             [
+#                 w,w,w,w,w,w,w,w,
+#                 w,b,b,w,w,w,w,w,
+#                 w,b,b,w,w,w,w,w,
+#                 w,w,w,w,w,w,w,w,
+#                 w,w,w,w,w,w,w,w,
+#                 w,w,w,w,w,b,b,w,
+#                 w,w,w,w,w,b,b,w,
+#                 w,w,w,w,w,w,w,w
+#             ],
+#             [
+#                 w,w,w,w,w,w,w,w,
+#                 w,b,b,w,w,w,w,w,
+#                 w,b,b,w,w,w,w,w,
+#                 w,w,w,b,b,w,w,w,
+#                 w,w,w,b,b,w,w,w,
+#                 w,w,w,w,w,b,b,w,
+#                 w,w,w,w,w,b,b,w,
+#                 w,w,w,w,w,w,w,w
+#             ],
+#             [
+#                 w,w,w,w,w,w,w,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,w,w,w,w,w,w,w,
+#                 w,w,w,w,w,w,w,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,w,w,w,w,w,w,w
+#             ],
+#             [
+#                 w,w,w,w,w,w,w,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,w,w,b,b,w,w,w,
+#                 w,w,w,b,b,w,w,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,w,w,w,w,w,w,w
+#             ],
+#             [
+#                 w,b,b,w,w,b,b,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,w,w,w,w,w,w,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,w,w,w,w,w,w,w,
+#                 w,b,b,w,w,b,b,w,
+#                 w,b,b,w,w,b,b,w
+#             ]
+#         ]
         
-    def dice_roll(self):
-        n = random.randint(3, 9)
-        while n != 0:
-            self.sense.set_pixels(random.choice(self.dice))
-            n -= 1
-            sleep(.2)
+#     def dice_roll(self):
+#         n = random.randint(3, 9)
+#         while n != 0:
+#             self.sense.set_pixels(random.choice(self.dice))
+#             n -= 1
+#             sleep(.2)
 
 def main():
     sense = SenseHat()
