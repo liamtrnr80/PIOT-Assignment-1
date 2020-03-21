@@ -74,11 +74,10 @@ class RollDice:
         while x<12:
             self.sense.set_pixels(self.dice[x%6])
             sleep(.1)
-            print(x)
             x+=1
         n = random.randrange(0,6)
         self.sense.set_pixels(self.dice[n])
-        print("You rolled a: " , n+1)
+        print("You rolled a:" , n+1)
 
 def main():
 
