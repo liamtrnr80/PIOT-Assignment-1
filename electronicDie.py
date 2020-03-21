@@ -83,7 +83,7 @@ def main():
     sense = SenseHat()
     print("Sense hat import")
     r = 255
-    g = 255
+    g = 2
     b = 255
 
     sense.clear((r, g, b))
@@ -101,3 +101,5 @@ def main():
     #         sense.set_pixels(random.choice(rollDice.dice))
     #         sleep(2)
     #         sense.clear()
+if __name__ == '__main__':
+    main()
