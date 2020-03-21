@@ -81,7 +81,12 @@ class RollDice:
 
 def main():
     sense = SenseHat()
-    sense.set_pixels(0,3,55)
+    print("Sense hat import")
+    r = 255
+    g = 255
+    b = 255
+
+    sense.clear((r, g, b))
     # rollDice = RollDice()
 
     # sense.clear()
