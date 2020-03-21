@@ -4,7 +4,6 @@ import random
 
 class RollDice:
     sense = SenseHat()
-    dice_roll = 0
     b = [0, 0, 0]
     w = [150, 150, 150]
     dice = [
@@ -69,6 +68,8 @@ class RollDice:
                 w,b,b,w,w,b,b,w
             ]
         ]
+    def __init__(self):
+        self.dice_roll = 0
         
     def dice_roll(self):
         rolling_counter=0
@@ -76,9 +77,9 @@ class RollDice:
             self.sense.set_pixels(self.dice[rolling_counter%6])
             sleep(.1)
             rolling_counter+=1
-        dice_roll = random.randrange(0,6)
-        self.sense.set_pixels(self.dice[dice_roll])
-        print("You rolled a:" , self.dice_roll)
+        self.dice_roll = random.randrange(0,6)
+        self.sense.set_pixels(self.dice[self.dice_roll])
+        print("You rolled a:" , dice_roll)
 
     def get_dice_roll(self):
         return self.dice_roll
