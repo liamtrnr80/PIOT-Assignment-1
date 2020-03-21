@@ -80,8 +80,8 @@ class RollDice:
         self.sense.set_pixels(self.dice[self.dice_roll])
         print("You rolled a:" , self.dice_roll)
 
-    # def get_dice_roll(self):
-    #     return self.dice_roll
+    def get_dice_roll(self):
+        return self.dice_roll
 
 def main():
 
