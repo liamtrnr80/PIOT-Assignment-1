@@ -3,11 +3,11 @@ from time import sleep
 import random
 from electronicDie import RollDice
 
-class TwoPlayerGame(self, player1, player2):
+class TwoPlayerGame():
     player1_score = 0
     player2_score = 0
 
-    def __init__(self):
+    def __init__(self, player1, player2):
         self.player1 = player1
         self.player2 = player2
 
