@@ -70,6 +70,11 @@ class RollDice:
         ]
         
     def dice_roll(self):
+        x=0
+        while x<12:
+            self.sense.set_pixels(self.dice[x])
+            sleep(.1)
+            x+=1
         n = random.randrange(0,6)
         self.sense.set_pixels(self.dice[n])
 
