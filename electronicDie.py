@@ -74,9 +74,8 @@ class RollDice:
         
     def dice_roll(self):
         n = random.randint(3, 9)
-        # (random.randrange(1,10))
         while n != 0:
-            self.sense.set_pixels(random.choice(dice))
+            self.sense.set_pixels(random.choice(self.dice))
             n -= 1
             sleep(.2)
 
