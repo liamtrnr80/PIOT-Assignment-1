@@ -17,6 +17,7 @@ def main():
 
     rollDice = RollDice()
     rollDice.sense.clear()
+    playerTurn = 0
     
     while True:
         x, y, z = rollDice.sense.get_accelerometer_raw().values()
@@ -27,6 +28,7 @@ def main():
 
         if x > 2 or y > 2 or z > 2:
             rollDice.dice_roll()
+            print("Value Returned:", rollDice.get_dice_roll())
             sleep(2)
             rollDice.sense.clear()
         
