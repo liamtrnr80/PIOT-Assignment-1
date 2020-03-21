@@ -13,7 +13,7 @@ class TwoPlayerGame():
 
 
 
-def main(self):
+def main():
 
     rollDice = RollDice()
     rollDice.sense.clear()
@@ -29,9 +29,9 @@ def main(self):
         if x > 2 or y > 2 or z > 2:
             score = rollDice.dice_roll()
             if(playerTurn%2==0):
-                self.player1_score+=score
+                rollDice.player1_score+=score
             else:
-                self.player2_score+=score
+                rollDice.player2_score+=score
             print("You Scored:", score)
             sleep(2)
             rollDice.sense.clear()
