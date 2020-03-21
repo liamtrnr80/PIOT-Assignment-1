@@ -87,7 +87,7 @@ def main():
 
         if x > 2 or y > 2 or z > 2:
             rollDice.dice_roll()
-            sleep(2)
+            # sleep(2)
             # rollDice.sense.clear()
 
 
