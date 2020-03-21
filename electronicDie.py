@@ -3,6 +3,7 @@ from time import sleep
 import random
 
 class RollDice:
+    sense = SenseHat()
     b = [0, 0, 0]
     w = [150, 150, 150]
     n = random.randrange(0,5)
