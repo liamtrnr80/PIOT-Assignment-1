@@ -27,7 +27,7 @@ def main():
         z = abs(z)
 
         if x > 2 or y > 2 or z > 2:
-            rollDice.dice_roll()
+            rollDice.dice_roll
             # print("Value Returned:", rollDice.get_dice_roll())
             sleep(2)
             rollDice.sense.clear()
