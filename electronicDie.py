@@ -73,7 +73,7 @@ class RollDice:
         x=0
         print("pre while")
         while x<12:
-            self.sense.set_pixels(self.dice[x])
+            self.sense.set_pixels(self.dice[x%6])
             sleep(.1)
             print(x)
             x+=1
