@@ -31,13 +31,15 @@ def main():
             score = rollDice.dice_roll()
             if(playerTurn%2==0):
                 diceGame.player1_score+=score
+                print(diceGame.player1, "rolled a:", score)
                 print(diceGame.player1, "has a score of", diceGame.player1_score)
                 print(diceGame.player2, "has a score of", diceGame.player2_score)
                 print()
             else:
                 diceGame.player2_score+=score
-                print(diceGame.player2, "has a score of", diceGame.player2_score)
+                print(diceGame.player2, "rolled a:", score)
                 print(diceGame.player1, "has a score of", diceGame.player1_score)
+                print(diceGame.player2, "has a score of", diceGame.player2_score)
                 print()
             
             sleep(2)
