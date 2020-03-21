@@ -3,13 +3,10 @@ from time import sleep
 import random
 
 class RollDice:
-    
     b = [0, 0, 0]
     w = [150, 150, 150]
     n = random.randrange(0,5)
-
-    def __init__(self):
-        self.dice = [
+    dice = [
             [
                 w,w,w,w,w,w,w,w,
                 w,w,w,w,w,w,w,w,
@@ -71,6 +68,8 @@ class RollDice:
                 w,b,b,w,w,b,b,w
             ]
         ]
+
+    # def __init__(self):
         
     def dice_roll(self):
         n = random.randint(3, 9)
