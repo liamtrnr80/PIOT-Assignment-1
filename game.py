@@ -16,7 +16,7 @@ class TwoPlayerGame():
 def main():
 
     rollDice = RollDice()
-    diceGame = TwoPlayerGame("John, Sevan")
+    diceGame = TwoPlayerGame("John", "Sevan")
     rollDice.sense.clear()
     playerTurn = 0
     
