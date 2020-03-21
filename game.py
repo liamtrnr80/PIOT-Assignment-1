@@ -31,9 +31,11 @@ def main():
             score = rollDice.dice_roll()
             if(playerTurn%2==0):
                 diceGame.player1_score+=score
+                print(diceGame.player1, "has a score of", diceGame.player1_score)
             else:
                 diceGame.player2_score+=score
-            print("You Scored:", score)
+                print(diceGame.player2, "has a score of", diceGame.player2_score)
+            
             sleep(2)
             rollDice.sense.clear()
         
