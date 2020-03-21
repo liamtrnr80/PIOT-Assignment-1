@@ -81,7 +81,7 @@ class RollDice:
         print("You rolled a:" , dice_roll+1)
 
     def get_dice_roll(self):
-        return dice_roll
+        return self.dice_roll
 
 def main():
 
