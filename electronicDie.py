@@ -4,6 +4,7 @@ import random
 
 class RollDice:
     sense = SenseHat()
+    dice_roll=0
     b = [0, 0, 0]
     w = [150, 150, 150]
     dice = [
@@ -68,8 +69,6 @@ class RollDice:
                 w,b,b,w,w,b,b,w
             ]
         ]
-    def __init__(self):
-        self.dice_roll=0
         
     def dice_roll(self):
         rolling_counter=0
