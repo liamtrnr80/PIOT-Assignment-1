@@ -6,7 +6,6 @@ class RollDice:
     sense = SenseHat()
     b = [0, 0, 0]
     w = [150, 150, 150]
-    n = random.randrange(0,5)
     dice = [
             [
                 w,w,w,w,w,w,w,w,
@@ -69,15 +68,15 @@ class RollDice:
                 w,b,b,w,w,b,b,w
             ]
         ]
-
-    # def __init__(self):
         
     def dice_roll(self):
-        n = random.randint(3, 9)
-        while n != 0:
-            self.sense.set_pixels(random.choice(self.dice))
-            n -= 1
-            sleep(.2)
+        # n = random.randint(3, 9)
+        n = random.randrange(0,5)
+        self.sense.set_pixels(self.dice[n])
+        # while n != 0:
+        #     self.sense.set_pixels(self.dice[n])
+        #     n -= 1
+        #     sleep(.2)
 
 def main():
     print("Sense hat main")
@@ -92,7 +91,8 @@ def main():
         z = abs(z)
 
         if x > 2 or y > 2 or z > 2:
-            rollDice.sense.set_pixels(random.choice(rollDice.dice))
+            # rollDice.sense.set_pixels(random.choice(rollDice.dice))
+            rollDice.dice_roll()
             sleep(2)
             rollDice.sense.clear()
 
