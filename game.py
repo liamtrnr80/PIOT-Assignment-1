@@ -38,6 +38,7 @@ def main():
             
             sleep(2)
             rollDice.sense.clear()
+            playerTurn+=1
         
 
 
