@@ -71,11 +71,14 @@ class RollDice:
         
     def dice_roll(self):
         x=0
+        print("pre while")
         while x<12:
             self.sense.set_pixels(self.dice[x])
             sleep(.1)
+            print(x)
             x+=1
         n = random.randrange(0,6)
+        print("post while")
         self.sense.set_pixels(self.dice[n])
 
 def main():
@@ -94,6 +97,7 @@ def main():
             rollDice.dice_roll()
             # sleep(2)
             # rollDice.sense.clear()
+        print("in main while post roll")
 
 
 if __name__ == '__main__':
