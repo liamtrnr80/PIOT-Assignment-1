@@ -96,7 +96,7 @@ def main():
             # sleep(2)
             # rollDice.sense.clear()
         
-
+    rollDice.sense.clear()
 
 if __name__ == '__main__':
     main()
