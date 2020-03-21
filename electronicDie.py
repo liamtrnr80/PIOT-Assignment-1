@@ -78,7 +78,7 @@ class RollDice:
             rolling_counter+=1
         self.dice_roll = random.randrange(0,6)
         self.sense.set_pixels(self.dice[self.dice_roll])
-        print("You rolled a:" , dice_roll+1)
+        print("You rolled a:" , self.dice_roll+1)
 
     def get_dice_roll(self):
         return self.dice_roll
