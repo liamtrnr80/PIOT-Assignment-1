@@ -60,8 +60,15 @@ class Temp():
         abs_temp = abs(self.temperature)
         tens = abs_temp // 10
         ones = abs_temp  % 10
+        r = self.colour[0]
+        g = self.colour[1]
+        b = self.colour[2]
+
         if (abs_temp > 9):
-            self.display_num(sense, tens, 1, 2, self.colour[0], self.colour[1], self.colour[2])
+            self.display_num(sense, tens, 1, 2, r, g, b)
+        else:
+            self.display_num(sense, 0, 1, 2, r, g, b)
+            
 
 def get_cpu_temp():
     res = os.popen("vcgencmd measure_temp").readline()
