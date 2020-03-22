@@ -68,6 +68,8 @@ class Temp():
             self.display_num(sense, tens, 1, 2, r, g, b)
         else:
             self.display_num(sense, 0, 1, 2, r, g, b)
+        
+        self.display_num(sense, ones, 5, 2, r, g, b)
             
 
 def get_cpu_temp():
