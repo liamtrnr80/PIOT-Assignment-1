@@ -14,7 +14,7 @@ class Temp():
 
     def checkTemp(self, config):
         if(self.temperature <= config['cold_max']):
-            print("Sup")
+            print("Sup") # Place holder
 
     def setTemperature(self, sense):
         temp1 = sense.get_temperature_from_humidity()
