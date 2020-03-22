@@ -37,6 +37,7 @@ class Temp():
         temp = (temp1 + temp2) /2
         temp_corr = temp - ((temp_cpu - temp) / 1.5)
         temp_corr = get_smooth(temp_corr)
+        self.temperature = round(temp_corr)
 
 
 def get_cpu_temp():
