@@ -49,12 +49,19 @@ class Temp():
         temp_corr = get_smooth(temp_corr)
         self.temperature = round(temp_corr)
 
+    def display_num(self, sense, val, x, y, r, g, b):
+        offset = val * 15
+        for pix in range(offset, offset + 15):
+            xt = pix % 3
+            yt = (pix - offset) // 3
+            sense.set_pixel(xt + x, yt + y, r * self.nums[pix], g * self.nums[pix], b * self.nums[pix])
+
     def display_temp(self, sense):
         abs_temp = abs(self.temperature)
-
-
-    def display_num(self, val, x, y):
-        offset = val * 15 
+        tens = abs_temp // 10
+        ones = abs_temp  % 10
+        if (abs_temp > 9):
+            self.display_num(sense, tens, 1, 2, self.colour[0], self.colour[1], self.colour[2])
 
 def get_cpu_temp():
     res = os.popen("vcgencmd measure_temp").readline()
