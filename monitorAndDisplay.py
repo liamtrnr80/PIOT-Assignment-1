@@ -90,7 +90,9 @@ def main():
     temp = Temp(0, white)
 
     while True:
+        temp.setTemperature()
         temp.checkTemp(config)
+        temp.display_temp(sense)
         sleep(10)
 
 if __name__ == '__main__':
