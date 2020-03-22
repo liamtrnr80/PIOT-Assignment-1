@@ -4,9 +4,9 @@ import json
 import os
 
 
-red = (255, 0, 0)
-green = (0, 255, 0)
-blue = (0, 0, 255)
+hot = (255, 0, 0)
+good = (0, 255, 0)
+cold = (0, 0, 255)
 white = (150, 150, 150)
 
 class Temp():
@@ -24,14 +24,13 @@ class Temp():
                      1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,
                      1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]
 
-
     def checkTemp(self, config):
         if(self.temperature <= config['cold_max']):
-            self.colour = blue
+            self.colour = cold
         elif(self.temperature >= config['hot_min']):
-            self.colour = red
+            self.colour = hot
         else:
-            self.colour = green
+            self.colour = good
 
     def setTemperature(self, sense):
         temp1 = sense.get_temperature_from_humidity()
@@ -50,6 +49,12 @@ class Temp():
         temp_corr = get_smooth(temp_corr)
         self.temperature = round(temp_corr)
 
+    def display_temp(self, sense):
+        abs_temp = abs(self.temperature)
+
+
+    def display_num(self, val, x, y):
+        offset = val * 15 
 
 def get_cpu_temp():
     res = os.popen("vcgencmd measure_temp").readline()
