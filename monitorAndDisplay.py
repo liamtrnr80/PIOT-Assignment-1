@@ -4,17 +4,23 @@ import json
 import os
 
 
-r = (255, 0, 0)
-g = (0, 255, 0)
-b = (0, 0, 255)
+red = (255, 0, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
+white = (150, 150, 150)
 
 class Temp():
-    def __init__(self, temperature):
+    def __init__(self, temperature, colour):
         self.temperature = temperature
+        self.colour = colour
 
     def checkTemp(self, config):
         if(self.temperature <= config['cold_max']):
-            print("Sup") # Place holder
+            self.colour = blue
+        elif(self.temperature >= config['hot_min']):
+            self.colour = red
+        else:
+            self.colour = green
 
     def setTemperature(self, sense):
         temp1 = sense.get_temperature_from_humidity()
@@ -48,7 +54,7 @@ def get_smooth(x):
 def main():
     sense = SenseHat()
     config = json.load(open('/home/pi/PIoT-Assignment-1/config.json'))
-    temp = Temp(0)
+    temp = Temp(0, white)
 
     while True:
         temp.checkTemp(config)
