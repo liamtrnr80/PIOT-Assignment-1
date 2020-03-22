@@ -1,5 +1,6 @@
-from sense_hat import sense_hat
+from sense_hat import SenseHat
 import json
+import os
 
 r = (255, 0, 0)
 g = (0, 255, 0)
@@ -13,3 +14,7 @@ def main():
     sense = SenseHat()
     config = json.load(open('/home/pi/PIoT-Assignment-1/config.json'))
 
+
+
+if __name__ == '__main__':
+    main()
