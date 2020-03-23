@@ -51,10 +51,10 @@ class Temp():
 
     def display_num(self, sense, val, x, y, r, g, b):
         offset = val * 15
-        for pix in range(offset, offset + 15):
+        for pix in range(int(offset), int(offset + 15)):
             xt = pix % 3
             yt = (pix - offset) // 3
-            sense.set_pixel(xt + x, yt + y, r * self.nums[pix], g * self.nums[pix], b * self.nums[pix])
+            sense.set_pixel(int(xt + x), int(yt + y), r * self.nums[pix], g * self.nums[pix], b * self.nums[pix])
 
     def display_temp(self, sense):
         abs_temp = abs(self.temperature)
@@ -93,6 +93,7 @@ def main():
     temp = Temp(0, white)
 
     while True:
+        sense.clear()
         temp.setTemperature(sense)
         temp.checkTemp(config)
         temp.display_temp(sense)
