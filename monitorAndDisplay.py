@@ -70,6 +70,9 @@ class Temp():
             self.display_num(sense, 0, 1, 2, r, g, b)
         
         self.display_num(sense, ones, 5, 2, r, g, b)
+    
+    def consolePrint(self):
+        print("Temperature = {}, Colour = {}".format(self.temperature, self.colour))
             
 
 def get_cpu_temp():
@@ -90,9 +93,10 @@ def main():
     temp = Temp(0, white)
 
     while True:
-        temp.setTemperature()
+        temp.setTemperature(sense)
         temp.checkTemp(config)
         temp.display_temp(sense)
+        temp.consolePrint()
         sleep(10)
 
 if __name__ == '__main__':
