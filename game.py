@@ -25,7 +25,7 @@ def main():
     game_goal = 30
     text_speed = 0.03
     sense.show_message("2_plyrs_take_turns_to_shake_PI", text_speed)
-    sense.show_message("1st_to_over" + str(game_goal) + "_wins!", text_speed)
+    sense.show_message("1st_over_" + str(game_goal) + "_pts_wins!", text_speed)
 
 
     while gameInPlay:
@@ -34,7 +34,7 @@ def main():
             sense.show_message("P1_Shake", text_speed)
             score = rollDice.detect_shake()
             diceGame.player1_score+=score
-            sense.show_message(str(diceGame.player1_score) + "_pts", text_speed)
+            sense.show_message(str(diceGame.player1_score) + " pts", text_speed)
             print("Rolled:", score)
             print(diceGame.player1, "has a score of", diceGame.player1_score)
             print(diceGame.player2, "has a score of", diceGame.player2_score)
@@ -43,7 +43,7 @@ def main():
             sense.show_message("P2_Shake", text_speed)
             score = rollDice.detect_shake()
             diceGame.player2_score+=score
-            sense.show_message(str(diceGame.player2_score) + "_pts", text_speed)
+            sense.show_message(str(diceGame.player2_score) + " pts", text_speed)
             print("Rolled:", score)
             print(diceGame.player1, "has a score of", diceGame.player1_score)
             print(diceGame.player2, "has a score of", diceGame.player2_score)
@@ -63,12 +63,12 @@ def main():
             else:
                 winner = "P2"
                 score = diceGame.player2_score
-            sense.show_message(winner + "_won:)", text_speed)
+            sense.show_message(winner + " won:)", text_speed)
             print("Game took", playerTurn, "shakes")
 
             with open('winner.csv', 'a+', newline='') as file:
                 writer = csv.writer(file)
-                writer.writerow(["Winner: ", winner, "Score: ", score, "Time: ",  winning_time])
+                writer.writerow(["Winner: ", winner, "Score: ", score, "Time: ",  winning_time, "Shakes: ", playerTurn])
             gameInPlay = False
         
 
