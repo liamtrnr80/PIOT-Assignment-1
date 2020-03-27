@@ -8,67 +8,69 @@ import csv
 class TwoPlayerGame():
     player1_score = 0
     player2_score = 0
+    rollDice = RollDice()
+    sense = SenseHat()
+    text_speed = 0.0003
+    playerTurn = 0
 
     def __init__(self, player1, player2):
         self.player1 = player1
         self.player2 = player2
 
+    def end_game(self):
+        self.sense.show_message("Game_over:(", self.text_speed)
+        winner = ""
+        score = 0
+        now = datetime.now()
+        winning_time = now.strftime("%H:%M:%S")
+        if self.player1_score>self.player2_score:
+            winner = "P1" 
+            score = self.player1_score
+        else:
+            winner = "P2"
+            score = self.player2_score
+        self.sense.show_message(winner + "_won:)", self.text_speed)
+        print("Game took", self.playerTurn, "shakes")
+
+        with open('winner.csv', 'a+', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(["Winner: ", winner, "Score: ", score, "Time: ",  winning_time])
+
 
 
 def main():
-    sense = SenseHat()
-    rollDice = RollDice()
     diceGame = TwoPlayerGame("P1", "P2")
-    rollDice.sense.clear()
-    playerTurn = 0
+    diceGame.rollDice.sense.clear()
     gameInPlay = True
-    game_goal = 30
-    text_speed = 0.03
-    sense.show_message("2_plyrs_take_turns_to_shake_PI", text_speed)
-    sense.show_message("1st_to_over" + str(game_goal) + "_wins!", text_speed)
+    game_goal = 2
+    diceGame.sense.show_message("2_plyrs_take_turns_to_shake_PI", diceGame.text_speed)
+    diceGame.sense.show_message("1st_to_over" + str(game_goal) + "_wins!", diceGame.text_speed)
 
 
     while gameInPlay:
-
-        if(playerTurn%2==0):
-            sense.show_message("P1_Shake", text_speed)
-            score = rollDice.detect_shake()
+        if(diceGame.playerTurn%2==0):
+            diceGame.sense.show_message("P1_Shake", diceGame.text_speed)
+            score = diceGame.rollDice.detect_shake()
             diceGame.player1_score+=score
-            sense.show_message(str(diceGame.player1_score) + "_pts", text_speed)
+            diceGame.sense.show_message(str(diceGame.player1_score) + "_pts", diceGame.text_speed)
             print("Rolled:", score)
             print(diceGame.player1, "has a score of", diceGame.player1_score)
             print(diceGame.player2, "has a score of", diceGame.player2_score)
             print()
         else:
-            sense.show_message("P2_Shake", text_speed)
-            score = rollDice.detect_shake()
+            diceGame.sense.show_message("P2_Shake", diceGame.text_speed)
+            score = diceGame.rollDice.detect_shake()
             diceGame.player2_score+=score
-            sense.show_message(str(diceGame.player2_score) + "_pts", text_speed)
+            diceGame.sense.show_message(str(diceGame.player2_score) + "_pts", diceGame.text_speed)
             print("Rolled:", score)
             print(diceGame.player1, "has a score of", diceGame.player1_score)
             print(diceGame.player2, "has a score of", diceGame.player2_score)
             print()
 
-        playerTurn+=1
+        diceGame.playerTurn+=1
 
         if diceGame.player1_score>game_goal or diceGame.player2_score>game_goal:
-            sense.show_message("Game_over:(", text_speed)
-            winner = ""
-            score = 0
-            now = datetime.now()
-            winning_time = now.strftime("%H:%M:%S")
-            if diceGame.player1_score>diceGame.player2_score:
-                winner = "P1" 
-                score = diceGame.player1_score
-            else:
-                winner = "P2"
-                score = diceGame.player2_score
-            sense.show_message(winner + "_won:)", text_speed)
-            print("Game took", playerTurn, "shakes")
-
-            with open('winner.csv', 'a+', newline='') as file:
-                writer = csv.writer(file)
-                writer.writerow(["Winner: ", winner, "Score: ", score, "Time: ",  winning_time])
+            diceGame.end_game()
             gameInPlay = False
         
 
