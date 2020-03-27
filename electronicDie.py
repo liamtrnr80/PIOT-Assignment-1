@@ -78,25 +78,30 @@ class RollDice:
             rolling_counter+=1
         self.dice_rolled = random.randrange(0,6)
         self.sense.set_pixels(self.dice[self.dice_rolled])
-        # print("You rolled a:", self.dice_rolled+1)
         return self.dice_rolled+1
+    
+    def detect_shake(self):
+        value = 0
+        while value == 0:
+            x, y, z = self.sense.get_accelerometer_raw().values()
+
+            x = abs(x)
+            y = abs(y)
+            z = abs(z)
+
+            if x > 2 or y > 2 or z > 2:
+                value = self.dice_roll()
+                sleep(1)
+                self.sense.clear()
+        return value
 
 def main():
 
     rollDice = RollDice()
-
     rollDice.sense.clear()
+
     while True:
-        x, y, z = rollDice.sense.get_accelerometer_raw().values()
-
-        x = abs(x)
-        y = abs(y)
-        z = abs(z)
-
-        if x > 2 or y > 2 or z > 2:
-            rollDice.dice_roll()
-            sleep(2)
-            rollDice.sense.clear()
+        rollDice.detect_shake()
         
 
 
