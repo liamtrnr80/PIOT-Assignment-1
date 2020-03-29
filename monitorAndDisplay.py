@@ -89,7 +89,7 @@ def get_smooth(x):
 
 def main():
     sense = SenseHat()
-    config = json.load(open('/home/pi/PIoT-Assignment-1/config.json'))
+    config = json.load(open('config.json'))
     temp = Temp(0, white)
 
     while True:
@@ -98,7 +98,7 @@ def main():
         temp.checkTemp(config)
         temp.display_temp(sense)
         temp.consolePrint()
-        sleep(10)
+        sleep(1)
 
 if __name__ == '__main__':
     main()
