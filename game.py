@@ -24,6 +24,21 @@ class TwoPlayerGame():
         self.p1.name = player1
         self.p2.name = player2
 
+
+    def Start_Game(self):
+        self.rollDice.sense.clear()
+        self.sense.show_message("2_plyrs_take_turns_to_shake_PI", self.text_speed)
+        self.sense.show_message("1st_over_" + str(self.game_goal) + "_pts_wins!", self.text_speed)
+        gameInPlay = True
+        while gameInPlay:
+            self.player_turn()
+
+            if self.p1.score>self.game_goal or self.p2.score>self.game_goal:
+                self.end_game()
+                gameInPlay = False
+
+
+
     def player_turn(self):
         currPlayer = Player()
         if(self.playerTurn%2==0):
@@ -43,7 +58,7 @@ class TwoPlayerGame():
         self.playerTurn+=1
 
     def end_game(self):
-        self.sense.show_message("Game_over:(", self.text_speed)
+        self.sense.show_message("Game_over_:(", self.text_speed)
         winner = Player()
         now = datetime.now()
         winning_time = now.strftime("%H:%M:%S")
@@ -57,21 +72,11 @@ class TwoPlayerGame():
         with open('winner.csv', 'a+', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["Winner: ", winner.name, "Score: ", winner.score, "Time: ",  winning_time, "Shakes: ", self.playerTurn])
+        file.close()
 
 def main():    
     diceGame = TwoPlayerGame("P1", "P2")
-    diceGame.rollDice.sense.clear()
-    
-    diceGame.sense.show_message("2_plyrs_take_turns_to_shake_PI", diceGame.text_speed)
-    diceGame.sense.show_message("1st_over_" + str(diceGame.game_goal) + "_pts_wins!", diceGame.text_speed)
-
-    gameInPlay = True
-    while gameInPlay:
-        diceGame.player_turn()
-
-        if diceGame.p1.score>diceGame.game_goal or diceGame.p2.score>diceGame.game_goal:
-            diceGame.end_game()
-            gameInPlay = False
+    diceGame.Start_Game()
         
 
 if __name__ == '__main__':
