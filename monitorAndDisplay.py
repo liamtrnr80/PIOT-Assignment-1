@@ -98,7 +98,7 @@ def main():
         temp.checkTemp(config)
         temp.display_temp(sense)
         temp.consolePrint()
-        sleep(1)
+        sleep(10)
 
 if __name__ == '__main__':
     main()
