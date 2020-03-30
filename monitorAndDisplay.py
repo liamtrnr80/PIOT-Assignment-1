@@ -74,11 +74,12 @@ class Temp():
     def consolePrint(self):
         print("Temperature = {}, Colour = {}".format(self.temperature, self.colour))
             
-
+# Taken from lecture 
 def get_cpu_temp():
     res = os.popen("vcgencmd measure_temp").readline()
     return float(res.replace("temp=","").replace("'C\n", ""))
 
+# Taken from lecture
 def get_smooth(x):
     if not hasattr(get_smooth, "t"):
         get_smooth.t = [x, x, x]
