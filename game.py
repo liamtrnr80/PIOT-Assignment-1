@@ -15,7 +15,7 @@ class TwoPlayerGame():
     player2_score = 0
     rollDice = RollDice()
     game_goal = 30
-    text_speed = 0.03
+    text_speed = 0.04
     playerTurn = 0
     p1 = Player()
     p2 = Player()
