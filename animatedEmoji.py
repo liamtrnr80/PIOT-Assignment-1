@@ -1,14 +1,13 @@
 from sense_hat import SenseHat
 from time import sleep
 
-w = (150, 150, 150)
-b = (142, 71, 0)
-y = (255, 192, 0)
-e = (0, 0, 0)
-p = (150,0,150)
-
 class Emoji():
     def __init__(self):
+        w = (150, 150, 150)
+        b = (142, 71, 0)
+        y = (255, 192, 0)
+        e = (0, 0, 0)
+        p = (150,0,150)
         self.emoji = [
             [
                 w,w,w,w,b,w,w,w,
