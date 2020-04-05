@@ -13,6 +13,8 @@ class Temp():
     def __init__(self, temperature, colour):
         self.temperature = temperature
         self.colour = colour
+        # code for displaying two digit number on sense hat was developed from:
+        # http://yaab-arduino.blogspot.com/2016/08/display-two-digits-numbers-on-raspberry.html
         self.nums = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
                      0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,  # 1
                      1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1,  # 2
