@@ -10,6 +10,17 @@ monitorAndDisplay.py :
   is put in front to display two digits.
 
 electronicDie.py :
-  
+
+	Using a pre defined array in the RollDice class that store images of the 6 different dice faces, the detectShake method repeatedly checks the values of the accelerometer.
+	once movement is detected, the dice_roll method is called, which generates a random digit between 0 and 5, and then displays that random element of the dice array to the screen.
 
 game.py :
+
+	This file contains the TwoPlayerGame class which uses electronicDie.py to play the dice game. You initiate the game by naming the two players which initialises their scores to zero and then Start_Game method is called.
+	This will display the instructions and then call the player_turn method repeatedly until a player scores over 30.
+	The player_turn method cycles between the two player objects, calling the detect_shake method from electronicDie class to detect shake and calculate the points awarded.
+	When a player scores over 30 on their turn the end_game method is called which displays the appropriate message and games the game data to winner.csv
+
+
+
+
