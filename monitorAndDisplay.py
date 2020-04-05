@@ -13,16 +13,16 @@ class Temp():
     def __init__(self, temperature, colour):
         self.temperature = temperature
         self.colour = colour
-        self.nums = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,
-                     0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,
-                     1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 
-                     1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1,
-                     1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1,
-                     1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1,
-                     1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1,   
-                     1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0,
-                     1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,
-                     1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]
+        self.nums = [1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1,  # 0
+                     0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0,  # 1
+                     1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1,  # 2
+                     1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1,  # 3
+                     1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1,  # 4
+                     1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1,  # 5
+                     1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 6
+                     1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0,  # 7 
+                     1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,  # 8
+                     1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1]  # 9
 
     def checkTemp(self, config):
         if(self.temperature <= config['cold_max']):
@@ -49,6 +49,7 @@ class Temp():
         temp_corr = get_smooth(temp_corr)
         self.temperature = round(temp_corr)
 
+    # Displays a number in a given area on sensehat
     def display_num(self, sense, val, x, y, r, g, b):
         offset = val * 15
         for pix in range(int(offset), int(offset + 15)):
@@ -56,10 +57,11 @@ class Temp():
             yt = (pix - offset) // 3
             sense.set_pixel(int(xt + x), int(yt + y), r * self.nums[pix], g * self.nums[pix], b * self.nums[pix])
 
+    # Displays the temperature on the sensehat
     def display_temp(self, sense):
         abs_temp = abs(self.temperature)
-        tens = abs_temp // 10
-        ones = abs_temp  % 10
+        tens = abs_temp // 10 # Returns the first number of a two digit number
+        ones = abs_temp  % 10 # Returns the second number of a two digit number
         r = self.colour[0]
         g = self.colour[1]
         b = self.colour[2]
@@ -67,9 +69,9 @@ class Temp():
         if (abs_temp > 9):
             self.display_num(sense, tens, 1, 2, r, g, b)
         else:
-            self.display_num(sense, 0, 1, 2, r, g, b)
+            self.display_num(sense, 0, 1, 2, r, g, b) # Displays a 0 should the number be less than 10
         
-        self.display_num(sense, ones, 5, 2, r, g, b)
+        self.display_num(sense, ones, 5, 2, r, g, b) 
     
     def consolePrint(self):
         print("Temperature = {}, Colour = {}".format(self.temperature, self.colour))
