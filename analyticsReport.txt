@@ -1,13 +1,16 @@
 animatedEmoji.py :
-  The code contains an Emoji class which serves to hold the emoji pixels which are being displayed and the display function to easily display
-  the selected emoji. The main class uses a while loop to cycle through the 3 different emojis by resetting a count when it reaches the end.
+
+  The code contains an Emoji class which serves to hold the emoji pixels which are being displayed and the display function to easily display the selected emoji.
+  The main class uses a while loop to cycle through the 3 different emojis by resetting a count when it reaches the end.
 
 monitorAndDisplay.py :
+
   The class Temp stores an array which has the numbers stored as 1 and 0 to produce the desired number in a 5x3 design later on the switch.
-  The code determines the temperature by getting the temperature from both the humidity and pressure sensor, using code provided by the lecture,
-  though because there was a bug where the sensors would return a 0 when first started they are checked a second time to ensure the right
-  temperature was provided. When displaying the temperature the code checks to see if it has two digits, should it be smaller than 10 then a 0
-  is put in front to display two digits.
+  setTemperature checks the temp by using the humidity and pressure sensors, using code provided by the lecturer.
+  Because there is a bug where the sensors would return a 0 when first started they are checked a second time to ensure the right temperature was provided.
+  When displaying the temperature the code checks to see if it has two digits, should it be smaller than 10 then a 0 is put in front to display two digits.
+  Using the number to be displayed, it checks the array by multiplying the number by 15 which lets it know where to start in the array.
+  display_temp splits the current colour into to seperate r g b values, allowing it to be used when setting pixels.
 
 electronicDie.py :
 
@@ -20,7 +23,3 @@ game.py :
 	This will display the instructions and then call the player_turn method repeatedly until a player scores over 30.
 	The player_turn method cycles between the two player objects, calling the detect_shake method from electronicDie class to detect shake and calculate the points awarded.
 	When a player scores over 30 on their turn the end_game method is called which displays the appropriate message and games the game data to winner.csv
-
-
-
-
